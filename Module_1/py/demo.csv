@@ -1,0 +1,11 @@
+id,name,email,age,city,signup_date
+1,Ava Patel,ava.patel@example.com,28,Austin,2024-01-15
+2,Noah Kim,noah.kim@example.com,34,Seattle,2024-02-03
+3,Mia Garcia,mia.garcia@example.com,22,Denver,2024-02-19
+4,Liam Chen,liam.chen@example.com,41,Portland,2024-03-07
+5,Zoe Miller,zoe.miller@example.com,30,Chicago,2024-03-22
+6,Ethan Brooks,ethan.brooks@example.com,27,Miami,2024-04-10
+7,Isabella Nguyen,isabella.nguyen@example.com,36,Boston,2024-04-18
+8,Lucas Rivera,lucas.rivera@example.com,25,Phoenix,2024-05-02
+9,Amara Johnson,amara.johnson@example.com,32,Atlanta,2024-05-16
+10,Oliver Davis,oliver.davis@example.com,29,San Diego,2024-06-01

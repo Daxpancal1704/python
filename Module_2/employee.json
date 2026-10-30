@@ -1,0 +1,9 @@
+[
+    {
+        "id": 21,
+        "name": "dax",
+        "department": "sd",
+        "salary": 122.0,
+        "active": true
+    }
+]

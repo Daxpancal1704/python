@@ -1,0 +1,16 @@
+list=["dax", "max", "lax", "pax"]
+print(list)
+print(list[0:2])
+list.append("ram")
+print(list)
+name="Hello Good morning, today is my second day in AI/ML as a intern in Kody"
+print(name.split())
+print(name.strip())
+print(name.split(","))
+print(name.replace("Good","Very Good"))
+print(name[0:10], end=" ")
+print(name.upper())
+print(name.lower())
+print(name.capitalize())
+print(name.title())
+print(f"Hello this is my  introductions for day 2 {name}")
