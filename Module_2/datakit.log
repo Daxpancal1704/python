@@ -1,0 +1,18 @@
+2026-11-02 15:40:31,620 - ERROR - Unexpected application error
+Traceback (most recent call last):
+  File "C:\Users\dax.panchal\Desktop\Python\Module_2\main.py", line 69, in main
+    rows = list(read_rows(path))
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dax.panchal\Desktop\Python\Module_2\datakit\readers.py", line 49, in read_rows
+    if any(not name or not name.strip()):
+               ^^^^
+UnboundLocalError: cannot access local variable 'name' where it is not associated with a value
+2026-11-02 15:41:01,834 - ERROR - Unexpected application error
+Traceback (most recent call last):
+  File "C:\Users\dax.panchal\Desktop\Python\Module_2\main.py", line 69, in main
+    rows = list(read_rows(path))
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dax.panchal\Desktop\Python\Module_2\datakit\readers.py", line 49, in read_rows
+    if any(not name or not name.strip()):
+               ^^^^
+UnboundLocalError: cannot access local variable 'name' where it is not associated with a value

@@ -1,0 +1,12 @@
+LOG ANALYSER REPORT SUMMERY
+.._____________
+Ttoal valid reocord processed : 98993
+Malformed lines : 1008
+
+Breakdown by leavel
+   -ERROR:33038
+   -INFO:33054
+   -WARNING:32901
+Seviece producing error: checkout,payment,users,search,auth
+ hours of the with  most errors:01:00(1458 errors )
+ 

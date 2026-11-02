@@ -1,0 +1,21 @@
+### Question 7 (Medium-Hard) - Your own module + standard library
+Create a module `textutils.py` (write it with `%%writefile textutils.py` or with Python) containing:
+
+* `clean(text)` - lower-case the text and remove punctuation (hint: `string.punctuation`).
+* `word_count(text)` - dict `word -> count` (use `collections.Counter`).
+* `top_n(text, n)` - the `n` most common words.
+* `is_palindrome(text)` - ignoring case, spaces and punctuation.
+* An `if __name__ == "__main__":` block with 3-4 quick self-tests.
+
+Then, in the notebook: import it in **three different ways** (`import x`, `from x import y`, `import x as z`); edit the module and use `importlib.reload`; and use `datetime` to write a timestamped report `report_<YYYY-MM-DD>.txt` with the top 5 words of a paragraph of your choice.
+
+
+
+import textutils
+print(textutils.clean("Hello"))
+
+from textutils import is_palindrome
+print(is_palindrome("racecar"))
+
+import textutils as tu
+print(tu.top_n("Hello Good",1))
