@@ -1,4 +1,4 @@
-%%writefile textutils.py
+# %%writefile textutils.py
 import string
 from collections import Counter
 

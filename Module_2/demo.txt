@@ -1,0 +1,3 @@
+Python is fun
+Files are useful
+Errors can be handled
