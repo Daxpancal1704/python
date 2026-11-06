@@ -1,49 +1,19 @@
-
-# file_name = input("Enter file name: ")
-
-# try:
-#     with open(file_name, "r") as file:
-#         lines = 0
-#         words = 0
-#         longest_line = ""
-
-#         for line in file:
-#             lines += 1
-#             words += len(line.split())
-
-#             if len(line.strip()) > len(longest_line):
-#                 longest_line = line.strip()
-
-#         if lines == 0:
-#             print("The file is empty.")
-#         else:
-#             print("Lines:", lines)
-#             print("Words:", words)
-#             print("Longest line:", longest_line)
-
-# except FileNotFoundError:
-#     print(f"File not found: {file_name}")
-
-
-
-user_file=input("Enter a file name : ")
+file_name=input("Enter file name :")
 try:
-    with open(user_file, "r")as r:
-        lines=0
+    with open(file_name , "r")as read:
+        line=0
         words=0
-        longest_line=''
-
-        for line in r:
-            lines+=1
-            words +=len(line.split())
-        if len(line.strip()) > len(longest_line):
-            longest_line=line.strip()
-        if lines== 0:
-            print("The file is empty")
+        lonegest_line=''
+        for line in read:
+            words+=len(line.split())
+        if len(line.strip())>len(lonegest_line):
+            lonegest_line=line.strip()
+        if line == 0:
+            print("File is empty")
         else:
-            print("Lines :",lines)
-            print("words :",words)
-            print("longest_line :",longest_line)
+            print("Line: ",line)
+            print("words: ",words)
+            print("longest_line: ",lonegest_line)
 except FileNotFoundError as e:
     print(e)
 
