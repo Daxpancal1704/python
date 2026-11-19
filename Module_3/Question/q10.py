@@ -27,26 +27,39 @@ from datetime import datetime,date
 
 
 class Race:
+    """Create class race: with name(it s string) and date(datetime.date) parameter"""
     def __init__(self,name,race_date):
         self.name=name
-        self.race_date=race_date
+        self.date=race_date
 
+    """print the name and date"""
     def __str__(self):
         return f"{self.name} ({self.date.strftime('%d-%m-%Y')})"
 
+    """Usubtract today from self.date to calculate the how  many days remain until the days """
     def days_until(self,today):
         return (self.date-today).days
 
+    #Alternative  way to build a rae object directly from a raw string 
     @classmethod
     def from_text(cls,text):
+
+        #it's pattern to findout the string 
+        #  (.+?) -> group of every char like uppercase lowenrcase etc 
+        # \s+on\s+ -> means space and on then space 
+        # (\d{2}-\d{2}-\d{4})-> group of date foramte (DD-MM-YYYY)
         match=re.fullmatch(r"(.+?)\s+on\s+(\d{2}-\d{2}-\d{4})",text.strip())
 
+
+        #  if pattern are didnot match so raise a  valueError
         if not match:
             raise ValueError(f"Invalid formate : {text}")
 
-        name,date_str=match.group()
+        # unpacke the two  captured pieces into name and date_str
+        name,date_str=match.groups()
 
         #straptime is autiomatically raise valueerror for impossible dates like 32-09-2026
+
         race_date=datetime.strptime(date_str,"%d-%m-%Y").date()
         return cls(name,race_date)
 
@@ -57,15 +70,51 @@ lines = [
     "Singapore GP - 2026"            # wrong format
 ]
 
+#storing the  valid race value 
 valid_race=[]
-skippd=0
+#counting skipped calue 
+skipped=0
 
+
+#Parsing and error handling
+"loop throught all 4 lines string one by one"
 for line in lines:
 
+    # """usign try and except value to use if valid_race so append text line if not so counting skipped"""
     try:
         valid_race.append(Race.from_text(line))
     except ValueError:
-        skippd +=1
+        skipped +=1
 
 print(f"valid races :{len(valid_race)}")
-print(f"Skipped: {skippd}")
+print(f"Skipped: {skipped}")
+
+# With `filter()` keep only the races after `today = date(2026, 9, 1)`, and with `reduce()` pick the earliest one.
+
+# One valid race are collected the scripts find which one  happend next after 1 sept ,20265
+today=date(2026, 9, 1)
+# check every race r  in valid_race and keep only those  where r.days_until(today) > 0
+upcoming=list(filter(lambda r:r.days_until(today) > 0, valid_race))
+
+if upcoming :
+
+    # Takes the upcoming race and compare them two into at a time (a and b)  
+    next_race=reduce(lambda a,b :a if a.date < b.date else b ,upcoming)
+    days_awys=next_race.days_until(today)
+    summery=f"Next race:{next_race.name}({days_awys} days away)"
+    print(summery)
+
+
+    # folder  name
+    folder="season"
+
+    #create a new folder name  exist_ok=True -> if folder already exist so run 
+    os.makedirs(folder,exist_ok=True)
+    #join the file name in folder 
+    file_path=os.path.join(folder,"next_race.txt")
+
+    
+    with open(file_path,"w")as f:
+        f.write(summery + "\n")
+
+    print("save seasion/next_race.txt")    
